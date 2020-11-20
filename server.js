@@ -35,9 +35,12 @@ app.use(morgan('short'));
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to Film Buff app" });
   });
+
+// direct all other requests via routes file
+require("./app/routes/films.routes")(app);
   
-  // set port
-  const PORT = process.env.PORT || 3000;
-  app.listen(PORT, () => {
+// set port
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
-  });
+});
