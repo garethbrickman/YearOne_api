@@ -13,6 +13,15 @@ let corsOptions = {
   };
 app.use(cors(corsOptions));
 
+/* Define db and sequelize it */
+
+const db = require("./app/models");
+/* db.sequelize.sync(); */
+// use the below to drop tables and re-sync in development
+db.sequelize.sync({ force: true }).then(() => {
+    console.log("Drop and re-sync db.");
+  });
+
 /* Define middleware */
 
 // parse requests of content-type: application/json
