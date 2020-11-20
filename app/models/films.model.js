@@ -3,10 +3,10 @@ module.exports = (sequelize, Sequelize) => {
       title: {
         type: Sequelize.STRING
       },
-      thumbs_up: {
+      thumbsUp: {
         type: Sequelize.INTEGER
       },
-      thumbs_down: {
+      thumbsDown: {
         type: Sequelize.INTEGER
       }
     });
