@@ -1,5 +1,5 @@
 const db = require("../models");
-const Films = db.films;
+const Film = db.films;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Film
