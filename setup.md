@@ -1,6 +1,11 @@
 $ mkdir YearOne_api
 $ cd YearOne_api
-$ npm install express sequelize mysql2 body-parser morgan cors --save
+$ npm install express sequelize mysql2 body-parser morgan cors nodemon --save
+
+Edit package.json:
+"main": "server.js"
+scripts:
+"start": "nodemon index.js"
 
 Tools used:
 
