@@ -30,6 +30,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // HTTP request logger
 app.use(morgan('short'));
+// Express will serve all files from public folder
+app.use(express.static("public"));
 
 // root route
 app.get("/", (req, res) => {
