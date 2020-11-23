@@ -1,7 +1,7 @@
 $(document).ready(function () {
   document.querySelector("#searchFilm").addEventListener('submit', (e) => {
     e.preventDefault(); // prevents document refreshing after search submit
-    $(".search-result").empty(); // empty the div of previous search results
+    $(".search-result").empty(); // empty the div of previous content
     const formData = new FormData(e.target);
     let queryTitle = formData.get('searchTitle');
     // TODO: hide API key in env var, pagination of results
@@ -14,6 +14,7 @@ $(document).ready(function () {
       .done(function (data) {
 /*           console.log( "Sample of data:", data ); */
           const resultTitles = data.Search.map(x => x.Title); // Extract just the film titles from the response
+          
           resultTitles.forEach(function (title) {
             const p = document.createElement("P");
             const t = document.createTextNode(title);
