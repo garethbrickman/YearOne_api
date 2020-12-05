@@ -12,15 +12,18 @@
 <main>
     <body>
         <div class="jumbotron">
-            <form id="searchFilm">
-                <label for="searchTitle">Search for a Film by Title:</label>
-                <input name="searchTitle" placeholder="e.g. Inception" />
+            <div class="form-title">
+                <p>Search for a Film by Title</p>
+            </div>
+            <form id="searchForm">
+                    <!-- <label for="searchTitle">Search for a Film by Title:</label> -->
+                    <input class="search-bar" name="searchTitle" placeholder="e.g. Inception" />
+                <input type="submit" name="submit">
             </form>
-            <button form="searchFilm" type="submit" class="btn-search">Search</button>
             <div class="search-result"></div>
             <br>
-            <button type="button" class="btn-post">POST</button>
-            <button type="button" class="btn-get">GET</button>
+            <!-- <button type="button" class="btn-post">POST</button>
+            <button type="button" class="btn-get">GET</button> -->
             <div class="get"></div>
         </div>
     </body>
