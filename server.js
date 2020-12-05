@@ -2,8 +2,9 @@
 
 const express = require('express');
 const morgan = require('morgan');
-const bodyParser = require("body-parser");
-const cors = require("cors");
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const path = require('path');
 
 /* Define app & cors*/
 
@@ -31,22 +32,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // HTTP request logger
 app.use(morgan('short'));
 
-// Express will serve all files from folder
-/* app.use(express.static('public')); */
-app.use(express.static('./views'));
-
-// set the view engine to ejs
-app.set('views', './views');
+// Express will serve scripts from this path
+app.use(express.static(path.join(__dirname, 'public')))
+// Set the view engine to ejs and serve views from this path
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // index page
 app.get('/', function(req, res) {
   res.render('pages/index');
-});
-
-// details page
-app.get('/details', function(req, res) {
-  res.render('pages/details');
 });
 
 /* client-side api request endpoints */
