@@ -1,5 +1,6 @@
 $(document).ready(function () {
-  document.querySelector("#searchFilm").addEventListener('submit', (e) => {
+  $('#searchForm').submit(function (e) {
+    console.log("SEARCH!");
     e.preventDefault(); // prevents document refreshing after search submit
     $(".search-result").empty(); // empty the div of previous content
     const formData = new FormData(e.target);
@@ -24,7 +25,7 @@ $(document).ready(function () {
             p.appendChild(t);
             document.querySelector(".search-result").appendChild(p); */
 
-  document.querySelector(".btn-post").addEventListener("click", function () {
+  /* document.querySelector(".btn-post").addEventListener("click", function () {
       $.post("http://localhost:3000/api/films",
       {
         "title": "Spiderman",
@@ -42,5 +43,5 @@ $(document).ready(function () {
       console.log(data);
       document.querySelector(".get").innerHTML = data;
     });
-  });
+  }); */
 });
