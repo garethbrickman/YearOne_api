@@ -30,15 +30,44 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // HTTP request logger
 app.use(morgan('short'));
-// Express will serve all files from public folder
-app.use(express.static("public"));
 
-// root route
-app.get("/", (req, res) => {
-    res.json({ message: "Welcome to Film Buff app" });
+// Express will serve all files from folder
+/* app.use(express.static('public')); */
+app.use(express.static('./views'));
+
+// set the view engine to ejs
+app.set('views', './views');
+app.set('view engine', 'ejs');
+
+// index page
+app.get('/', function(req, res) {
+  res.render('pages/index');
+});
+
+// details page
+app.get('/details', function(req, res) {
+  res.render('pages/details');
+});
+
+/* client-side api request endpoints */
+
+// submit find query by film title
+app.get('/client/find/:filmTitle', function(req, res) {
+   // TODO: hide API key in env var, pagination of results
+   const apiKey = "169cd3b2&s";
+   $.ajax({
+     type: "GET",
+     url: "http://www.omdbapi.com/",
+     data: "apikey=" + apiKey + "&type=movie" + "&s=" + filmTitle,
+     })
+     .done(function (data) {
+         console.log( "Sample of data:", data );
+         const resultTitles = data.Search.map(x => x.Title); // Extract just the film titles from the response
+         res.json({resultTitles});
   });
+});
 
-// direct all other requests via routes file
+// direct all other internal api requests via routes file
 require("./app/routes/films.routes")(app);
   
 // set port
