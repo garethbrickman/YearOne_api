@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+    <%- include('../partials/header'); %>
+</header>
+
+<main>
+    <body>
+        <div class="jumbotron">
+            <div class="form-title">
+                <p>Search for a Film by Title</p>
+            </div>
+            <form id="searchForm">
+                    <!-- <label for="searchTitle">Search for a Film by Title:</label> -->
+                    <input class="search-bar" name="searchTitle" placeholder="e.g. Inception" />
+                <input type="submit" name="submit">
+            </form>
+            <div class="search-result"></div>
+            <br>
+            <!-- <button type="button" class="btn-post">POST</button>
+            <button type="button" class="btn-get">GET</button> -->
+            <div class="get"></div>
+        </div>
+    </body>
+</main>
+
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>
